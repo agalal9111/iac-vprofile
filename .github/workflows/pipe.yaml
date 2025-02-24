@@ -12,6 +12,10 @@ jobs:
     terraform:
         name: terraform plan and validate
         runs-on: ubuntu-latest
+        defaults:
+            run:
+                shell: bash
+                working-directory: ./terraform
 
         steps:
             - name: checkout
