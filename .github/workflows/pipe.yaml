@@ -27,7 +27,12 @@ jobs:
             - name: fmt the code
               run: terraform fmt
 
+            - name: initialize terraform
+              id: init
+              run: terraform init --backend-config="bucket=gitopstf"          
+
             - name: validate the code
+              id: validate
               run: terraform validate
 
 
