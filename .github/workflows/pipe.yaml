@@ -9,11 +9,21 @@ on:
         branches:
             - manin    
 jobs:
-    build:
+    terraform:
         name: terraform plan and validate
         runs-on: ubuntu-latest
 
         steps:
             - name: checkout
               uses: actions/checkout@v4
+
+            - name: prepare and install terraform
+              uses: hashicorp/setup-terraform@v3              
+
+            - name: fmt the code
+              run: terraform fmt
+
+            - name: validate the code
+              run: terraform validate
+
 
